@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./common/template.xhtml">
+
+            <ui:define name="title">
+                Login in the application
+            </ui:define>
+
+            <ui:define name="navbar">
+				Login
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+					<h:messages styleClass="errorMsg"></h:messages>
+					<h:panelGrid columns="2"  columnClasses="rightAlign,leftAlign">
+						<h:outputText value="Login:">
+						</h:outputText>
+						<h:inputText label="Login"
+									 value="#{login.dto.name}"
+									 required="true">
+							<f:validateLength minimum="4" maximum="30" >
+							</f:validateLength>
+						</h:inputText>
+						<h:outputText value="Password:"></h:outputText>
+						<h:inputSecret label="*******"
+									   value="#{login.dto.password}"
+									   required="true">
+						</h:inputSecret>
+						<h:panelGroup></h:panelGroup>
+						<h:commandButton action="${login.login()}" value="Save">
+						</h:commandButton>
+						￼      </h:panelGrid>
+				</h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
